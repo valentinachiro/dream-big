@@ -1,0 +1,641 @@
+body {
+    background-color: black;
+    cursor: url('./images/paletacursor.png') 16 16, auto;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 3px solid #FC6E02;
+    position: sticky;
+    top: 0;
+    background-color: black;
+    z-index: 100;
+    padding: 25px 50px;
+}
+
+
+/* LOGO Y ESTRELLAS DEL MENU */
+
+.logo-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logo-header {
+    width: 60px;
+    height: auto;
+}
+
+.estrellas {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    margin-top: 8px;
+}
+
+.estrella {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    cursor: pointer;
+    transition: 0.2s;
+    cursor: url('images/pelotitaclick.png') 20 20, auto;
+}
+
+.estrella:hover {
+    filter: brightness(0) saturate(100%) invert(48%) sepia(99%) saturate(2500%) hue-rotate(1deg) brightness(101%) contrast(104%);
+}
+
+p {
+    color: #FFFFFF;
+    font-family: Helvetica;
+}
+
+nav {
+    display: flex;
+}
+
+nav a {
+    color: #FFFFFF;
+    margin-left: 45px;
+    text-decoration: none;
+    font-family: 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
+    cursor: url('images/pelotitaclick.png') 20 20, auto;
+    font-size: 20px;
+}
+
+nav a:hover {
+    color: #FC6E02;
+}
+
+h2 {
+    color: #FFFFFF;
+    font-family: 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
+    font-size: 90px;
+    text-align: center;
+}
+
+h3 {
+    color: #FC6E02;
+    font-family: 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
+}
+
+section {
+    padding-top: 120px;
+    padding-bottom: 120px;
+}
+
+/* HOME */
+#home {
+    background-image: url('images/playing.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    height: 100vh;
+    position: relative;
+    border-bottom: 3px solid #FC6E02;
+}
+
+.logo-flotante {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo-home {
+    width: 800px;
+}
+
+/* ACERCA DE MARTY */
+.fila-about {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    margin: 150px auto;
+}
+
+.foto-about {
+    width: 350px;
+    border-radius: 15px;
+    border: 10px solid #1B2A41;
+}
+
+.titulocentrado {
+    text-align: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
+    margin-top: 0;
+    font-size: 40px;
+}
+
+.contenedor-texto {
+    display: flex;
+    justify-content: center;
+}
+
+.texto-home {
+    width: 550px;
+    text-align: justify;
+}
+
+/* PRODUCTOS */
+#productos {
+    background-color: rgb(17, 24, 44);
+}
+
+.grillaproductos {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap; /* para q se acomoden en 3 y 3 */
+    justify-content: center;
+    gap: 30px; /* espacio ENTRE tarjetas */
+    padding: 0 60px; /* espacio entre las tarjetas y los bordes de la pantalla */
+}
+
+.producto {
+    flex: 25%;
+    padding: 30px; /* espacio ADENTRO de cada tarjeta */
+    text-align: center;
+    border: 3px solid #1B2A41;
+    border-radius: 15px;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(27, 42, 65, 0.96);
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    opacity: 0;
+    box-sizing: border-box;
+}
+
+.overlay p {
+    font-family: 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
+}
+
+.producto:hover .overlay {
+    opacity: 1;
+}
+
+.producto img {
+    width: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.producto h3 {
+    font-size: 35px;
+}
+
+.producto p {
+    font-size: 20px;
+    color: #FC6E02;
+}
+
+/* TEXTO Y BOTON DEBAJO DE LOS PRODUCTOS */
+.cta-productos {
+    text-align: center;
+    margin-top: 80px;
+}
+
+.cta-productos p {
+    font-size: 28px;
+    margin-bottom: 25px;
+    font-family: 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
+
+} 
+
+.btn-cta {
+    display: inline-block;
+    background-color: #FC6E02;
+    color: #000000;
+    padding: 18px 40px;
+    border-radius: 10px;
+    font-family: 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
+    font-size: 22px;
+    text-decoration: none;
+    cursor: url('images/pelotitaclick.png') 20 20, auto;
+    transition: background-color 0.3s ease;
+}
+
+.btn-cta:hover {
+    background-color: #FFFFFF;
+}
+
+/* ROAD TO JAPAN */
+.texto-japan {
+    text-align: center;
+    width: 1000px;
+    margin: 40px auto;
+}
+
+.fila-barra {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icono-viaje {
+    width: 250px;
+    margin: 0 20px;
+}
+
+.barra-exterior {
+    width: 700px;
+    height: 35px;
+    background-color: #1B2A41;
+    border-radius: 20px;
+    position: relative;
+}
+
+.barra-interior {
+    width: 0%;
+    height: 100%;
+    border-radius: 20px;
+    background: linear-gradient(90deg, #FC6E02, #ffb066);
+    transition: width 2s ease;
+}
+
+.texto-progreso {
+    text-align: center;
+    margin-top: 15px;
+    font-family: 'Gill Sans', sans-serif;
+    color: #FC6E02;
+    font-size: 20px;
+}
+
+.zeppelin {
+    position: absolute;
+    left: 0%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 70px;
+    transition: left 2s ease;
+}
+
+.porcentaje-viaje {
+    position: absolute;
+    left: 0%;
+    top: -40px;
+    transform: translateX(-50%);
+    color: #FC6E02;
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 25px;
+    font-weight: bold;
+    transition: left 2s ease;
+}
+
+/* SCOREBOARD */
+#scoreboard {
+    background-color: rgb(17, 24, 44);
+}
+
+.panel-scoreboard {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 60px;
+    margin-top: 60px;
+}
+
+/* TABLA DE RESULTADOS */
+.tablero {
+    width: 800px;
+    padding: 25px 35px;
+    border: 3px solid #1B2A41;
+    border-radius: 15px;
+    box-sizing: border-box;
+}
+
+.tabla-resultados {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tabla-resultados th {
+    color: #FC6E02;
+    font-family: 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
+    font-size: 24px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align: center;
+    padding: 12px 10px;
+    border-bottom: 2px solid #1B2A41;
+}
+
+.tabla-resultados td {
+    color: #FFFFFF;
+    font-family: Helvetica;
+    font-weight: bold;
+    font-size: 18px;
+    text-align: center;
+    padding: 14px 10px;
+    border-bottom: 1px solid #1B2A41;
+}
+
+.tabla-resultados th:first-child,
+.tabla-resultados td:first-child {
+    text-align: left;
+}
+
+.tabla-resultados .victoria {
+    color: #5BD16F;
+}
+
+.tabla-resultados .derrota {
+    color: #FF5A6E;
+}
+
+.tabla-resultados .proximo {
+    color: #9A9A9A;
+}
+
+.resumen-tabla {
+    display: flex;
+    gap: 50px;
+    margin-top: 25px;
+}
+
+.numero-grande {
+    font-family: 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
+    font-size: 50px;
+    margin: 0;
+}
+
+.etiqueta {
+    font-family: 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
+    color: #FC6E02;
+    font-size: 20px;
+    margin: 0;
+}
+
+/* APUESTA */
+.bloque-apuesta {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+}
+
+.bloque-apuesta h3 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.bloque-apuesta p {
+    margin-bottom: 25px; /* espacio entre text y botones */
+}
+
+.btn-apuesta {
+    width: 100%;
+    background-color: #FC6E02;
+    color: #000000;
+    padding: 18px;
+    margin-bottom: 15px; /* espacio entre botones */
+    font-size: 18px;
+    font-family: 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
+    border-radius: 10px;
+    cursor: url('images/pelotitaclick.png') 20 20, auto;
+}
+
+/* CONTACTO */
+
+.fila-contacto {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 60px;
+    flex-wrap: wrap;
+}
+
+.item-contacto {
+    text-align: center;
+    text-decoration: none;
+    width: 220px;
+    padding: 30px 20px;
+    border: 3px solid #1B2A41;
+    border-radius: 15px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+    cursor: url('images/pelotitaclick.png') 20 20, auto;
+}
+
+.item-contacto img {
+    width: 90px;
+    margin-bottom: 20px;
+}
+
+.item-contacto p {
+    font-family: 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
+    font-size: 26px;
+    margin: 0;
+}
+
+.item-contacto:hover {
+    border-color: #FC6E02;
+}
+
+.dato-contacto {
+    font-size: 15px;
+    color: #9AB4D9;
+    margin-top: 10px;
+    font-family: Helvetica;
+    word-break: break-word;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 30px;
+    border-top: 1px solid #1B2A41;
+}
+
+footer p {
+    font-size: 14px;
+    color: #999999;
+}
+/* POP-UP */
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.75);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease;
+    z-index: 200;
+}
+
+.popup.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.popup-caja {
+    background-color: rgb(17, 24, 44);
+    border: 3px solid #FC6E02;
+    border-radius: 15px;
+    padding: 50px 70px;
+    text-align: center;
+    transform: scale(0.6);
+    transition: transform 0.4s ease;
+}
+
+.popup.visible .popup-caja {
+    transform: scale(1);
+}
+
+.popup-titulo {
+    font-family: 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
+    font-size: 70px;
+    color: #FC6E02;
+    margin: 0 0 10px;
+}
+
+.popup-caja p {
+    font-size: 24px;
+}
+
+.btn-popup {
+    margin-top: 25px;
+    background-color: #FC6E02;
+    color: #000000;
+    padding: 14px 40px;
+    font-size: 20px;
+    font-family: 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
+    border-radius: 10px;
+    cursor: url('images/pelotitaclick.png') 20 20, auto;
+}
+
+/* BOTONES DESPUES DE VOTAR */
+.btn-apuesta:disabled {
+    opacity: 0.5;
+}
+
+.btn-apuesta.elegido {
+    opacity: 1;
+    background-color: #FFFFFF;
+}
+
+/* ENCUESTA */
+.poll {
+    margin-top: 25px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.poll.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.poll-titulo {
+    font-family: 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
+    font-size: 24px;
+    color: #FC6E02;
+}
+
+.poll-fila {
+    display: flex;
+    justify-content: space-between;
+    color: #FFFFFF;
+    font-family: 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
+    font-size: 22px;
+    margin-bottom: 8px;
+}
+
+.poll-barra {
+    height: 22px;
+    background-color: #1B2A41;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+.poll-relleno {
+    height: 100%;
+    width: 0;
+    border-radius: 20px;
+    background: linear-gradient(90deg, #FC6E02, #ffb066);
+    transition: width 1.5s ease;
+}
+
+.poll-relleno.koto {
+    background: #9AB4D9;
+}
+
+/* BOLITA QUE SIGUE AL CURSOR */
+.bolita {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 30px;
+    pointer-events: none;
+    z-index: 300;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* CARRUSEL ABOUT MARTY */
+
+.carrusel-about {
+    width: 350px;
+    height: 430px;
+    position: relative;
+    flex-shrink: 0;
+}
+
+#foto-marty {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+    border: 10px solid #1B2A41;
+    box-sizing: border-box;
+    transition: opacity 0.5s ease;
+}
+
+.flecha-carrusel {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #FC6E02;
+    border: none;
+    font-size: 25px;
+    padding: 12px;
+    cursor: url('images/pelotitaclick.png') 20 20, auto;
+    border-radius: 8px;
+}
+
+.flecha-carrusel:hover {
+    background-color: #FC6E02;
+    color: black;
+}
+
+.anterior {
+    left: 15px;
+}
+
+.siguiente {
+    right: 15px;
+}
