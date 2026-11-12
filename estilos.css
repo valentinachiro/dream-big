@@ -90,7 +90,7 @@ section {
 
 /* HOME */
 #home {
-    background-image: url('./images/playing2.jpg');
+    background-image: url('../images/playing2.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
