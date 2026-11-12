@@ -639,3 +639,80 @@ footer p {
 .siguiente {
     right: 15px;
 }
+
+/* ===== RESPONSIVE ===== */
+
+img {
+    max-width: 100%;
+}
+
+/* TABLET (hasta 1024px de ancho) */
+@media (max-width: 1024px) {
+    header { padding: 15px 25px; }
+    nav a { margin-left: 25px; font-size: 18px; }
+    h2 { font-size: 60px; }
+    section { padding-top: 80px; padding-bottom: 80px; }
+
+    #home { background-attachment: scroll; }
+    .logo-home { width: 80%; }
+    .estrella { width: 70px; height: 70px; }
+    .estrellas { gap: 30px; }
+
+    .fila-about { flex-direction: column; margin: 80px auto; }
+    .bloque-texto-about { width: 85%; }
+    .texto-home { width: 100%; }
+
+    .grillaproductos { padding: 0 30px; }
+    .producto { flex: 40%; }
+
+    .texto-japan { width: 85%; }
+    .fila-barra { flex-wrap: wrap; justify-content: space-between; padding: 0 40px; }
+    .icono-viaje { width: 150px; margin: 0; }
+    .barra-exterior { width: 100%; order: 3; margin-top: 70px; }
+
+    .panel-scoreboard { flex-direction: column; }
+    .tablero, .bloque-apuesta { width: 90%; }
+}
+
+/* CELULAR (hasta 600px de ancho) */
+@media (max-width: 600px) {
+    header { flex-direction: column; gap: 8px; padding: 10px 15px; }
+    .logo-header { width: 40px; }
+    nav { flex-wrap: wrap; justify-content: center; }
+    nav a { margin: 4px 9px; font-size: 15px; }
+    h2 { font-size: 38px; }
+    section { padding-top: 50px; padding-bottom: 50px; }
+
+    #home { height: 80vh; }
+    .logo-home { width: 92%; }
+    .estrella { width: 45px; height: 45px; }
+    .estrellas { gap: 15px; }
+
+    .fila-about { margin: 50px auto; }
+    .carrusel-about { width: 280px; height: 350px; }
+    .titulocentrado { font-size: 28px; }
+
+    .grillaproductos { padding: 0 20px; }
+    .producto { flex: 100%; padding: 20px; }
+    .producto h3 { font-size: 26px; }
+    .cta-productos p { font-size: 20px; }
+
+    .fila-barra { padding: 0 15px; }
+    .icono-viaje { width: 110px; }
+    .zeppelin { width: 50px; }
+    .porcentaje-viaje { font-size: 18px; }
+
+    .tablero { padding: 15px; }
+    .tabla-resultados th { font-size: 14px; padding: 8px 4px; }
+    .tabla-resultados td { font-size: 13px; padding: 10px 4px; }
+    .numero-grande { font-size: 36px; }
+
+    .item-contacto { width: 100%; max-width: 300px; }
+    .popup-caja { width: 80%; padding: 30px 25px; }
+    .popup-titulo { font-size: 44px; }
+}
+
+/* PANTALLAS TACTILES: no hay mouse, así que no hace falta la bolita */
+@media (hover: none) {
+    .bolita { display: none; }
+}
