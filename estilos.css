@@ -89,25 +89,15 @@ section {
 }
 
 /* HOME */
-/* HOME */
 #home {
-    background-image: url('./images/playing2.jpg');
     background-size: cover;
-    background-position: center center;
+    background-position: center;
     background-repeat: no-repeat;
-    background-attachment: scroll;
-
     height: 100vh;
-    width: 100%;
     padding: 0 !important;
     margin: 0;
-
     position: relative;
     border-bottom: 3px solid #FC6E02;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 /* ACERCA DE MARTY */
 .fila-about {
