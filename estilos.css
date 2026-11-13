@@ -93,10 +93,15 @@ section {
 #home {
     background-image: url('./images/playing2.jpg');
     background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+
     height: 100vh;
-    padding: 0;
+    width: 100%;
+    padding: 0 !important;
+    margin: 0;
+
     position: relative;
     border-bottom: 3px solid #FC6E02;
 
@@ -104,18 +109,6 @@ section {
     justify-content: center;
     align-items: center;
 }
-
-.logo-flotante {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.logo-home {
-    width: 800px;
-}
-
 /* ACERCA DE MARTY */
 .fila-about {
     display: flex;
