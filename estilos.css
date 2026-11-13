@@ -89,13 +89,20 @@ section {
 }
 
 /* HOME */
+/* HOME */
 #home {
+    background-image: url('./images/playing2.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
     height: 100vh;
+    padding: 0;
     position: relative;
     border-bottom: 3px solid #FC6E02;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .logo-flotante {
