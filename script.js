@@ -239,3 +239,140 @@ setInterval(function () {
     opacity: 1;
     visibility: visible;
 }
+
+// PELOTITAS QUE CAEN
+const zonaPelotas = document.getElementById('zona-pelotas');
+const botonPelota = document.getElementById('pelota-boton');
+const botonCerrarPelotas = document.getElementById('cerrar-pelotas');
+
+const TAMANO = window.innerWidth < 600 ? 40 : 60;  // tamaño de cada pelotita
+const GRAVEDAD = 0.5;   // qué tan rápido caen
+const REBOTE = 0.75;    // 1 = rebota siempre igual, 0 = no rebota
+const MAXIMO = 120;     // cantidad máxima en pantalla
+
+let pelotas = [];
+let moviendo = false;
+
+function soltarPelotas() {
+    if (pelotas.length >= MAXIMO) {
+        return;
+    }
+
+    for (let i = 0; i < 40; i++) {
+        const img = document.createElement('img');
+        img.src = './images/pelotitaclick.png';
+        img.className = 'pelota-cayendo';
+        img.style.width = TAMANO + 'px';
+        zonaPelotas.appendChild(img);
+
+        pelotas.push({
+            elemento: img,
+            x: Math.random() * (window.innerWidth - TAMANO),
+            y: -TAMANO - Math.random() * 700,   // arrancan arriba de la pantalla, a distintas alturas
+            vx: (Math.random() - 0.5) * 6,
+            vy: 0,
+            giro: 0
+        });
+    }
+
+    botonCerrarPelotas.classList.add('visible');
+
+    if (moviendo === false) {
+        moviendo = true;
+        moverPelotas();
+    }
+}
+
+function moverPelotas() {
+    pelotas.forEach(function (p) {
+        p.vy = p.vy + GRAVEDAD;
+
+        // el mouse empuja a las pelotitas que están cerca
+        const dx = (p.x + TAMANO / 2) - mouseX;
+        const dy = (p.y + TAMANO / 2) - mouseY;
+        const distancia = Math.sqrt(dx * dx + dy * dy);
+        if (distancia < 90 && distancia > 0) {
+            const fuerza = (90 - distancia) / 90;
+            p.vx = p.vx + (dx / distancia) * fuerza * 3;
+            p.vy = p.vy + (dy / distancia) * fuerza * 3;
+        }
+
+        p.x = p.x + p.vx;
+        p.y = p.y + p.vy;
+
+        // rebote en el suelo
+        const suelo = window.innerHeight - TAMANO;
+        if (p.y > suelo) {
+            p.y = suelo;
+            p.vy = -p.vy * REBOTE;
+            p.vx = p.vx * 0.98;
+            if (Math.abs(p.vy) < 1.5) {
+                p.vy = 0;
+            }
+        }
+
+        // rebote en las paredes
+        if (p.x < 0) {
+            p.x = 0;
+            p.vx = -p.vx * REBOTE;
+        }
+        if (p.x > window.innerWidth - TAMANO) {
+            p.x = window.innerWidth - TAMANO;
+            p.vx = -p.vx * REBOTE;
+        }
+
+        p.giro = p.giro + p.vx * 2;
+    });
+
+    // choques entre pelotitas
+    for (let i = 0; i < pelotas.length; i++) {
+        for (let j = i + 1; j < pelotas.length; j++) {
+            const a = pelotas[i];
+            const b = pelotas[j];
+            const dx = b.x - a.x;
+            const dy = b.y - a.y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+
+            if (dist < TAMANO && dist > 0) {
+                const nx = dx / dist;
+                const ny = dy / dist;
+                const solape = (TAMANO - dist) / 2;
+
+                // las separo para que no se superpongan
+                a.x = a.x - nx * solape;
+                a.y = a.y - ny * solape;
+                b.x = b.x + nx * solape;
+                b.y = b.y + ny * solape;
+
+                // se intercambian la velocidad con la que chocan
+                const va = a.vx * nx + a.vy * ny;
+                const vb = b.vx * nx + b.vy * ny;
+                if (va - vb > 0) {
+                    const cambio = (va - vb) * 0.9;
+                    a.vx = a.vx - cambio * nx;
+                    a.vy = a.vy - cambio * ny;
+                    b.vx = b.vx + cambio * nx;
+                    b.vy = b.vy + cambio * ny;
+                }
+            }
+        }
+    }
+
+    // dibujo cada pelotita en su posición
+    pelotas.forEach(function (p) {
+        p.elemento.style.transform = 'translate(' + p.x + 'px, ' + p.y + 'px) rotate(' + p.giro + 'deg)';
+    });
+
+    requestAnimationFrame(moverPelotas);
+}
+
+function cerrarPelotas() {
+    pelotas.forEach(function (p) {
+        p.elemento.remove();
+    });
+    pelotas = [];
+    botonCerrarPelotas.classList.remove('visible');
+}
+
+botonPelota.addEventListener('click', soltarPelotas);
+botonCerrarPelotas.addEventListener('click', cerrarPelotas);
