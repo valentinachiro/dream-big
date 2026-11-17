@@ -206,7 +206,7 @@ function soltarPelotas() {
 
     for (let i = 0; i < 40; i++) {
         const img = document.createElement('img');
-        img.src = './images/pelotitaclick.png';
+        img.src = './images/pelotaqcae.png';        
         img.className = 'pelota-cayendo';
         img.style.width = TAMANO + 'px';
         zonaPelotas.appendChild(img);
