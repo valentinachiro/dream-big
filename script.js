@@ -192,12 +192,17 @@ const botonPelota = document.getElementById('pelota-boton');
 const botonCerrarPelotas = document.getElementById('cerrar-pelotas');
 
 const TAMANO = window.innerWidth < 600 ? 40 : 60;  // tamaño de cada pelotita
-const GRAVEDAD = 0.5;   // qué tan rápido caen
-const REBOTE = 0.75;    // 1 = rebota siempre igual, 0 = no rebota
-const MAXIMO = 120;     // cantidad máxima en pantalla
+const GRAVEDAD = 0.5;      // qué tan rápido caen
+const REBOTE = 0.75;       // 1 = rebota siempre igual, 0 = no rebota
+const MAXIMO = 120;        // cantidad máxima en pantalla
+const RADIO_MOUSE = 150;   // a qué distancia las afecta el mouse
+const FUERZA_MOUSE = 6;    // qué tan fuerte las empuja
+const VEL_MAX = 35;        // velocidad máxima, para que no salgan disparadas
 
 let pelotas = [];
 let moviendo = false;
+let mouseAntesX = 0;
+let mouseAntesY = 0;
 
 function soltarPelotas() {
     if (pelotas.length >= MAXIMO) {
@@ -206,7 +211,7 @@ function soltarPelotas() {
 
     for (let i = 0; i < 40; i++) {
         const img = document.createElement('img');
-        img.src = './images/pelotaqcae.png';        
+        img.src = './images/pelotaqcae.png';
         img.className = 'pelota-cayendo';
         img.style.width = TAMANO + 'px';
         zonaPelotas.appendChild(img);
@@ -225,11 +230,19 @@ function soltarPelotas() {
 
     if (moviendo === false) {
         moviendo = true;
+        mouseAntesX = mouseX;
+        mouseAntesY = mouseY;
         moverPelotas();
     }
 }
 
 function moverPelotas() {
+    // qué tan rápido se está moviendo el mouse
+    const mouseVX = mouseX - mouseAntesX;
+    const mouseVY = mouseY - mouseAntesY;
+    mouseAntesX = mouseX;
+    mouseAntesY = mouseY;
+
     pelotas.forEach(function (p) {
         p.vy = p.vy + GRAVEDAD;
 
@@ -237,11 +250,15 @@ function moverPelotas() {
         const dx = (p.x + TAMANO / 2) - mouseX;
         const dy = (p.y + TAMANO / 2) - mouseY;
         const distancia = Math.sqrt(dx * dx + dy * dy);
-        if (distancia < 90 && distancia > 0) {
-            const fuerza = (90 - distancia) / 90;
-            p.vx = p.vx + (dx / distancia) * fuerza * 3;
-            p.vy = p.vy + (dy / distancia) * fuerza * 3;
+        if (distancia < RADIO_MOUSE && distancia > 0) {
+            const fuerza = (RADIO_MOUSE - distancia) / RADIO_MOUSE;
+            p.vx = p.vx + (dx / distancia) * fuerza * FUERZA_MOUSE + mouseVX * fuerza * 0.5;
+            p.vy = p.vy + (dy / distancia) * fuerza * FUERZA_MOUSE + mouseVY * fuerza * 0.5;
         }
+
+        // límite de velocidad para que no salgan disparadas
+        p.vx = Math.max(-VEL_MAX, Math.min(VEL_MAX, p.vx));
+        p.vy = Math.max(-VEL_MAX, Math.min(VEL_MAX, p.vy));
 
         p.x = p.x + p.vx;
         p.y = p.y + p.vy;
