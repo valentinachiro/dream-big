@@ -184,3 +184,58 @@ siguiente.addEventListener('click', function () {
 setInterval(function () {
     cambiarFoto(1);
 }, 3000);
+
+/* PELOTITAS QUE CAEN */
+.zona-pelotas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 150;
+    overflow: hidden;
+}
+
+.pelota-cayendo {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.pelota-boton {
+    position: fixed;
+    bottom: 25px;
+    left: 25px;
+    width: 60px;
+    z-index: 160;
+    transition: transform 0.2s ease;
+    cursor: url('images/pelotitaclick.png') 20 20, auto;
+}
+
+.pelota-boton:hover {
+    transform: scale(1.15) rotate(15deg);
+}
+
+.btn-cerrar-pelotas {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    z-index: 160;
+    background-color: #FC6E02;
+    color: #000000;
+    border: none;
+    padding: 12px 28px;
+    font-size: 20px;
+    font-family: 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
+    border-radius: 10px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease;
+    cursor: url('images/pelotitaclick.png') 20 20, auto;
+}
+
+.btn-cerrar-pelotas.visible {
+    opacity: 1;
+    visibility: visible;
+}
