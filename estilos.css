@@ -164,12 +164,18 @@ section {
 
 .producto {
     flex: 25%;
-    padding: 30px; /* espacio ADENTRO de cada tarjeta */
+    padding: 30px;
     text-align: center;
     border: 3px solid #1B2A41;
     border-radius: 15px;
     position: relative;
     box-sizing: border-box;
+
+    /* NUEVAS TRANSICIONES */
+    overflow: hidden;
+    transition: transform 0.4s ease,
+                border-color 0.4s ease,
+                box-shadow 0.4s ease;
 }
 
 .overlay {
@@ -180,12 +186,19 @@ section {
     bottom: 0;
     background-color: rgba(27, 42, 65, 0.96);
     border-radius: 12px;
+
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 20px;
-    opacity: 0;
+
     box-sizing: border-box;
+
+    opacity: 0;
+    transform: translateY(15px);
+
+    transition: opacity 0.4s ease,
+                transform 0.4s ease;
 }
 
 .overlay p {
@@ -194,13 +207,27 @@ section {
 
 .producto:hover .overlay {
     opacity: 1;
+    transform: translateY(0);
+}
+
+.producto:hover {
+    transform: translateY(-10px) scale(1.03);
+    border-color: #FC6E02;
+    box-shadow: 0 10px 30px rgba(252, 110, 2, 0.2);
 }
 
 .producto img {
     width: 100%;
     object-fit: cover;
     border-radius: 10px;
+
+    transition: transform 0.5s ease;
 }
+
+.producto:hover img {
+    transform: scale(1.08);
+}
+
 
 .producto h3 {
     font-size: 35px;
