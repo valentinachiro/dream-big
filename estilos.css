@@ -773,69 +773,6 @@ img {
     cursor: url('images/pelotitaclick.png') 20 20, auto;
 }
 
-/* MENU HAMBURGUESA */
-.menu-boton {
-    display: none;
-    background: none;
-    border: none;
-    cursor: url('images/pelotitaclick.png') 20 20, auto;
-    flex-direction: column;
-    gap: 5px;
-    padding: 8px;
-}
-
-.menu-boton span {
-    display: block;
-    width: 28px;
-    height: 3px;
-    background-color: #FC6E02;
-    border-radius: 3px;
-    transition: transform 0.3s ease, opacity 0.3s ease;
-}
-
-/* la hamburguesa se convierte en una X */
-.menu-boton.abierto span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
-.menu-boton.abierto span:nth-child(2) { opacity: 0; }
-.menu-boton.abierto span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
-
-@media (max-width: 1024px) {
-    header {
-        flex-direction: row;
-        gap: 0;
-    }
-
-    .menu-boton {
-        display: flex;
-    }
-
-    nav {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        flex-direction: column;
-        flex-wrap: nowrap;
-        background-color: black;
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.4s ease;
-    }
-
-    nav.abierto {
-        max-height: 400px;
-        border-bottom: 3px solid #FC6E02;
-    }
-
-    nav a {
-        margin: 0;
-        padding: 18px;
-        font-size: 20px;
-        text-align: center;
-        border-top: 1px solid #1B2A41;
-    }
-}
-
-
 .btn-cerrar-pelotas.visible {
     opacity: 1;
     visibility: visible;
