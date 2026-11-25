@@ -770,3 +770,11 @@ img {
     opacity: 1;
     visibility: visible;
 }
+
+.producto {
+    transition: transform 2s ease !important;
+}
+
+.producto:hover {
+    transform: translateY(-30px) !important;
+}
