@@ -339,3 +339,32 @@ function cerrarPelotas() {
 
 botonPelota.addEventListener('click', soltarPelotas);
 botonCerrarPelotas.addEventListener('click', cerrarPelotas);
+
+
+const menuToggle = document.getElementById("menu-toggle");
+const menuNav = document.getElementById("menu-nav");
+
+menuToggle.addEventListener("click", function () {
+    menuNav.classList.toggle("abierto");
+    menuToggle.classList.toggle("abierto");
+
+    const estaAbierto = menuNav.classList.contains("abierto");
+
+    menuToggle.setAttribute("aria-expanded", estaAbierto);
+    menuToggle.setAttribute(
+        "aria-label",
+        estaAbierto ? "Cerrar menú" : "Abrir menú"
+    );
+});
+
+// Cerrar el menú al seleccionar una sección
+
+menuNav.querySelectorAll("a").forEach(function (enlace) {
+    enlace.addEventListener("click", function () {
+        menuNav.classList.remove("abierto");
+        menuToggle.classList.remove("abierto");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.setAttribute("aria-label", "Abrir menú");
+    });
+});
+
