@@ -804,3 +804,71 @@ img {
     transform: scale(1.05);
 }
 
+
+/* MENU HAMBURGUESA */
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    padding: 8px;
+    cursor: pointer;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 30px;
+    height: 3px;
+    background-color: #FC6E02;
+    margin: 6px 0;
+    border-radius: 5px;
+    transition: 0.3s ease;
+}
+
+/* TABLET Y CELULAR */
+
+@media (max-width: 1024px) {
+
+    header {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        position: sticky;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    nav {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        padding: 15px 0;
+        gap: 15px;
+    }
+
+    nav.abierto {
+        display: flex;
+    }
+
+    nav a {
+        margin: 0;
+        font-size: 20px;
+    }
+
+    /* Animación de las rayitas */
+
+    .menu-toggle.abierto span:nth-child(1) {
+        transform: translateY(9px) rotate(45deg);
+    }
+
+    .menu-toggle.abierto span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-toggle.abierto span:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
+    }
+}
