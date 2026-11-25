@@ -148,6 +148,7 @@ section {
     text-align: justify;
 }
 
+
 /* PRODUCTOS */
 #productos {
     background-color: rgb(17, 24, 44);
@@ -156,10 +157,10 @@ section {
 .grillaproductos {
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap; /* para q se acomoden en 3 y 3 */
+    flex-wrap: wrap;
     justify-content: center;
-    gap: 30px; /* espacio ENTRE tarjetas */
-    padding: 0 60px; /* espacio entre las tarjetas y los bordes de la pantalla */
+    gap: 30px;
+    padding: 0 60px;
 }
 
 .producto {
@@ -171,11 +172,26 @@ section {
     position: relative;
     box-sizing: border-box;
 
-    /* NUEVAS TRANSICIONES */
-    overflow: hidden;
     transition: transform 0.4s ease,
                 border-color 0.4s ease,
                 box-shadow 0.4s ease;
+}
+
+.producto:hover {
+    transform: translateY(-10px) scale(1.02);
+    border-color: #FC6E02;
+    box-shadow: 0 10px 30px rgba(252, 110, 2, 0.2);
+}
+
+.producto img {
+    width: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform 0.5s ease;
+}
+
+.producto:hover img {
+    transform: scale(1.05);
 }
 
 .overlay {
@@ -186,17 +202,14 @@ section {
     bottom: 0;
     background-color: rgba(27, 42, 65, 0.96);
     border-radius: 12px;
-
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 20px;
-
     box-sizing: border-box;
 
     opacity: 0;
     transform: translateY(15px);
-
     transition: opacity 0.4s ease,
                 transform 0.4s ease;
 }
@@ -210,25 +223,6 @@ section {
     transform: translateY(0);
 }
 
-.producto:hover {
-    transform: translateY(-10px) scale(1.03);
-    border-color: #FC6E02;
-    box-shadow: 0 10px 30px rgba(252, 110, 2, 0.2);
-}
-
-.producto img {
-    width: 100%;
-    object-fit: cover;
-    border-radius: 10px;
-
-    transition: transform 0.5s ease;
-}
-
-.producto:hover img {
-    transform: scale(1.08);
-}
-
-
 .producto h3 {
     font-size: 35px;
 }
@@ -239,34 +233,6 @@ section {
 }
 
 /* TEXTO Y BOTON DEBAJO DE LOS PRODUCTOS */
-.cta-productos {
-    text-align: center;
-    margin-top: 80px;
-}
-
-.cta-productos p {
-    font-size: 28px;
-    margin-bottom: 25px;
-    font-family: 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
-
-} 
-
-.btn-cta {
-    display: inline-block;
-    background-color: #FC6E02;
-    color: #000000;
-    padding: 18px 40px;
-    border-radius: 10px;
-    font-family: 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
-    font-size: 22px;
-    text-decoration: none;
-    cursor: url('images/pelotitaclick.png') 20 20, auto;
-    transition: background-color 0.3s ease;
-}
-
-.btn-cta:hover {
-    background-color: #FFFFFF;
-}
 
 /* ROAD TO JAPAN */
 .texto-japan {
