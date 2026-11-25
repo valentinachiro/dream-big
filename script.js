@@ -339,20 +339,3 @@ function cerrarPelotas() {
 
 botonPelota.addEventListener('click', soltarPelotas);
 botonCerrarPelotas.addEventListener('click', cerrarPelotas);
-
-// MENU HAMBURGUESA
-const menuBoton = document.getElementById('menu-boton');
-const menuNav = document.getElementById('menu-nav');
-
-menuBoton.addEventListener('click', function () {
-    menuNav.classList.toggle('abierto');
-    menuBoton.classList.toggle('abierto');
-});
-
-// al tocar un link, el menú se cierra
-document.querySelectorAll('#menu-nav a').forEach(function (link) {
-    link.addEventListener('click', function () {
-        menuNav.classList.remove('abierto');
-        menuBoton.classList.remove('abierto');
-    });
-});
