@@ -775,6 +775,10 @@ img {
     transition: all 1s ease !important;
 }
 
+body {
+    background-color: red !important;
+}
+
 .producto:hover {
     transform: translateY(-30px) scale(1.05) !important;
     background-color: #FC6E02 !important;
