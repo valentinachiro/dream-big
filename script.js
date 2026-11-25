@@ -340,6 +340,11 @@ function cerrarPelotas() {
 botonPelota.addEventListener('click', soltarPelotas);
 botonCerrarPelotas.addEventListener('click', cerrarPelotas);
 
+console.log("Botón de pelotitas conectado");
+botonPelota.addEventListener('click', function () {
+    console.log("Se hizo clic en el botón");
+});
+
 
 const menuToggle = document.getElementById("menu-toggle");
 const menuNav = document.getElementById("menu-nav");
