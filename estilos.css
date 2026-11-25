@@ -772,9 +772,10 @@ img {
 }
 
 .producto {
-    transition: transform 2s ease !important;
+    transition: all 1s ease !important;
 }
 
 .producto:hover {
-    transform: translateY(-30px) !important;
+    transform: translateY(-30px) scale(1.05) !important;
+    background-color: #FC6E02 !important;
 }
